@@ -21,7 +21,7 @@ I used sklearn train_test_split to split my training and validation data. I used
 ## Model and Fitting
 I used sklearn RandomForestRegressor with n_estimators = 100 and set a random state. 
 
-##Postseason package
+## postseason package
 I created a postseason.py package to generalize the data collection using the functions 
 get_abbreviation, get_postseason_teams_by_year, and get_postseason_hitting_by_year
 
