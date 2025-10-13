@@ -23,8 +23,6 @@ I used sklearn RandomForestRegressor with n_estimators = 100 and set a random st
 
 ## postseason package
 I created a postseason.py package to generalize the data collection using the functions 
-get_abbreviation, get_postseason_teams_by_year, and get_postseason_hitting_by_year
-
-so that anyone can quickly build a postseason hitting dataset by importing it, and calling get_postseason_hitting_by_year(year).
+get_abbreviation, get_postseason_teams_by_year, and get_postseason_hitting_by_year so that anyone can quickly build a postseason hitting dataset by importing it, and calling get_postseason_hitting_by_year(year).
 
 
