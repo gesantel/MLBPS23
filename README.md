@@ -1,6 +1,7 @@
 # MLBPS23
 
 Find the substack article [here](https://georgesantellano.substack.com/p/quantifying-what-we-all-saw-coming). 
+Download Post Season Hitting Stats on my [streamlit](https://mlbps23-cycl4ucqbdd9syni4anaapp.streamlit.app/).
 
 The objective of this project was originally to study the 2023 performance of the Arizona Diamondbacks. 
 I wanted to answer what hitting statistics made them so successful in that year's playoff runs. Read more about the turns this project took in the substack article. 
