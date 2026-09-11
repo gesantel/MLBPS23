@@ -1,2 +1,4 @@
 .DS_Store
 key.json
+.ipynb_checkpoints/
+__pycache__/
