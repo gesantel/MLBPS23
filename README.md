@@ -78,7 +78,7 @@ in [`api/README.md`](api/README.md).
 ## Tech stack
 
 Python, scikit-learn, pandas, FastAPI, Docker, Google Cloud Run,
-GitHub Actions, Streamlit, MLB StatsAPI.
+GitHub Actions, Streamlit, MLB StatsAPI, Tableau.
 
 ## How this was built
 
