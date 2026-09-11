@@ -80,6 +80,15 @@ in [`api/README.md`](api/README.md).
 Python, scikit-learn, pandas, FastAPI, Docker, Google Cloud Run,
 GitHub Actions, Streamlit, MLB StatsAPI.
 
+## How this was built
+
+The model and data pipeline were built and trained independently. The
+deployment infrastructure — Docker, Cloud Run, and the GitHub Actions
+CI/CD pipeline — was built with AI assistance (Claude) as a way to
+learn DevOps practices hands-on: debugging real errors, understanding
+each tool's purpose, and verifying every step rather than copying
+commands blindly.
+
 ## Known limitation
 
 `game_id` is currently included as a model feature; it's likely a
