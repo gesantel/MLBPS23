@@ -1,7 +1,7 @@
 # MLB Postseason Run Prediction
 
 Predicting team runs from in-game hitting statistics using a random
-forest regression model, trained on 2023–2025 MLB postseason offensive
+forest regression model, trained on 2023 MLB postseason offensive
 data and deployed as a live production API.
 
 **Live API:** https://mlb-predictor-240528909633.us-central1.run.app
@@ -24,9 +24,9 @@ service:
    StatsAPI for postseason teams.
 2. **Modeling** ([`notebooks/`](notebooks/)) — exploratory analysis,
    feature engineering, and training a `RandomForestRegressor` inside a
-   scikit-learn `Pipeline`, evaluated with MSE. The model predicted 82%
+   scikit-learn `Pipeline`, evaluated with MSE. The model predicted 87%
    of 2025 postseason results correctly, with an average run error of
-   ~1.2 per team.
+   ~1.4 runs.
 3. **Interactive demo** ([`streamlit_app/`](streamlit_app/)) — a
    Streamlit app for exploring predictions and team comparisons in the
    browser.
@@ -41,11 +41,11 @@ service:
 
 ```
 MLBPS23/
-├── data/                    # Raw and processed hitting statistics (CSV)
+├── data/                    # Raw hitting statistics (CSV)
 ├── notebooks/               # Exploratory analysis and model training
 │   ├── MLB23_PS_Offense.ipynb
-│   └── postseason.py        # Helper functions used by the notebook
-├── streamlit_app/           # Interactive browser demo
+│   └── postseason.py        # I wrote this helper function used by the notebook
+├── streamlit_app/           # Interactive browser demo (may remove later on)
 │   ├── app.py
 │   └── requirements.txt
 ├── api/                     # Production FastAPI service
@@ -89,8 +89,6 @@ learn DevOps practices hands-on: debugging real errors, understanding
 each tool's purpose, and verifying every step rather than copying
 commands blindly.
 
-## Known limitation
+## Known Limitations
 
-`game_id` is currently included as a model feature; it's likely a
-non-predictive identifier rather than a meaningful statistic and is a
-candidate for removal in a future retraining pass.
+The streamlit_app has not been updated since an earlier iteration of this project. Everything else is fresh and in working order. 
