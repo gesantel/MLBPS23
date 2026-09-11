@@ -4,8 +4,8 @@ Predicting team runs from in-game hitting statistics using a random
 forest regression model, trained on 2023 MLB postseason offensive
 data and deployed as a live production API.
 
-**Live API:** https://mlb-predictor-240528909633.us-central1.run.app
-**Interactive docs:** https://mlb-predictor-240528909633.us-central1.run.app/docs
+**API base URL:** `https://mlb-predictor-240528909633.us-central1.run.app`
+**Interactive docs (click to try it live):** https://mlb-predictor-240528909633.us-central1.run.app/docs
 **Docker image:** [gesantel/mlb-predictor](https://hub.docker.com/r/gesantel/mlb-predictor)
 
 ---
