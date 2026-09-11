@@ -26,7 +26,7 @@ service:
    feature engineering, and training a `RandomForestRegressor` inside a
    scikit-learn `Pipeline`, evaluated with MSE. The model predicted 87%
    of 2025 postseason results correctly, with an average run error of
-   ~1.4 runs.
+   ~1.4 runs. [Visualizations](https://public.tableau.com/views/2023MLBPostseasonOffenseDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) linked in notebook and here as well.
 3. **Interactive demo** ([`streamlit_app/`](streamlit_app/)) — a
    Streamlit app for exploring predictions and team comparisons in the
    browser.
