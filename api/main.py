@@ -45,7 +45,6 @@ def load_model():
 # Pydantic validates types and required fields before the model ever runs.
 # ---------------------------------------------------------------------------
 class GameStats(BaseModel):
-    game_id: int = Field(..., description="Identifier for the game (passed through to the model as trained).")
     doubles: float
     triples: float
     home_runs: float
@@ -64,7 +63,6 @@ class GameStats(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "game_id": 1,
                 "doubles": 6,
                 "triples": 1,
                 "home_runs": 2,
@@ -109,8 +107,8 @@ def predict(stats: GameStats):
 
     latency_ms = (time.perf_counter() - start) * 1000
     logger.info(
-        "Prediction served | game_id=%s | predicted_runs=%.3f | latency_ms=%.2f",
-        stats.game_id, prediction, latency_ms,
+        "Prediction served | predicted_runs=%.3f | latency_ms=%.2f",
+        prediction, latency_ms,
     )
 
     return PredictionResponse(predicted_runs=round(float(prediction), 3), latency_ms=round(latency_ms, 2))
