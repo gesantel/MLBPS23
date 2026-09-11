@@ -65,51 +65,6 @@ def get_postseason_teams_by_year(year):
     return dict(sorted(post_season_teams.items()))    
 
 
-def get_postseason_hitting_by_year(year):
-    all_data = []
-
-    start_date = f'{year}-9-30'
-    end_date = f'{year}-11-05'
-    team_ids = get_postseason_teams_by_year(year)   
-    for team_name, team_id in team_ids.items():
-        # Fetch all games in that window
-        schedule = statsapi.schedule(start_date=start_date, end_date=end_date, team = team_id)
-        for game in schedule:
-            if game['game_type'] != 'R':
-                gid = game['game_id']
-                box = statsapi.boxscore_data(gid)
-            
-                if 'teamInfo' not in box:
-                    continue
-        
-                try:
-                    team_stats = (
-                        box['away']
-                        if box['teamInfo']['away']['id'] == team_id
-                        else box['home']
-                    )
-                    hitting = team_stats['teamStats']['batting']
-        
-                    all_data.append({
-                        'team': team_name,
-                        'game_id': gid,
-                        'runs': hitting['runs'],
-                        'hits': hitting['hits'],
-                        'doubles': hitting['doubles'],
-                        'triples': hitting['triples'],
-                        'home_runs': hitting['homeRuns'],
-                        'strike_outs': hitting['strikeOuts'],
-                        'walks': hitting['baseOnBalls'],
-                        'stolen_bases': hitting['stolenBases'],
-                        'left_on_base': hitting['leftOnBase'],
-                        'slug': hitting['slg'],
-                        'ops': hitting['ops'],
-                        'obp': hitting['obp'],
-                    })
-                except KeyError:
-                    continue
-        
-    return pd.DataFrame(all_data)
 
 def get_postseason_hitting_by_year(year):
     all_data = []
@@ -150,11 +105,13 @@ def get_postseason_hitting_by_year(year):
                         'left_on_base': hitting['leftOnBase'],
                         'slug': hitting['slg'],
                         'ops': hitting['ops'],
-                        'obp': hitting['obp'],
+                        'obp': hitting['obp'],                    
+                        'at_bats': hitting['atBats']
                     })
                 except KeyError:
                     continue
     df = pd.DataFrame(all_data)
     df['extra_base_hits'] = df['doubles'] + df['triples'] + df['home_runs']
     df['xbh_rate'] = df['extra_base_hits'] / df['hits'].replace(0, 1)   
+    df['walk_rate'] = df['walks'] / (df['walks'] + df['strike_outs']).replace(0, 1)
     return df
